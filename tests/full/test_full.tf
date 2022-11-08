@@ -115,7 +115,7 @@ resource "test_assertions" "igmpIfPol" {
 
 
 data "aci_rest_managed" "igmpStateLPol" {
-  dn = "${dat.aci_rest_managed.igmpIfPol.id}/igmpstateLPol"
+  dn = "${data.aci_rest_managed.igmpIfPol.id}/igmpstateLPol"
 
   depends_on = [module.main]
 }
