@@ -3,7 +3,7 @@
 
 # Terraform ACI IGMP Interface Policy Module
 
-Description
+Manages ACI IGMP Interface Policy Module
 
 Location in GUI:
 `Tenants` » `XXX` » `Policies` » `Protocol` » `IGMP Interface`
