@@ -128,7 +128,7 @@ resource "test_assertions" "igmpIfPol" {
   equal "ver" {
     description = "ver"
     got         = data.aci_rest_managed.igmpIfPol.content.ver
-    want        = "3"
+    want        = "v3"
   }
 }
 
@@ -192,13 +192,13 @@ resource "test_assertions" "igmpStateLPol" {
   equal "max" {
     description = "max"
     got         = data.aci_rest_managed.igmpStateLPol.content.max
-    want        = "unlimited"
+    want        = "1000"
   }
 
   equal "rsvd" {
     description = "rsvd"
     got         = data.aci_rest_managed.igmpStateLPol.content.rsvd
-    want        = "undefined"
+    want        = "100"
   }
 }
 
