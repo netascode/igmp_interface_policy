@@ -1,0 +1,35 @@
+<testsuites>
+  <errors>2</errors>
+  <failures>0</failures>
+  <tests>2</tests>
+  <testsuite>
+    <name>full</name>
+    <tests>1</tests>
+    <skipped>0</skipped>
+    <errors>1</errors>
+    <failures>0</failures>
+    <testcase>
+      <name>(plan)</name>
+      <classname>(plan)</classname>
+      <error>
+        <message>failed to create a plan</message>
+      </error>
+      <system-out>&#xA;Error: Either of private_key/cert_name or password is required&#xA;&#xA;  with provider[&#34;registry.terraform.io/ciscodevnet/aci&#34;],&#xA;  on &lt;empty&gt; line 0:&#xA;  (source code not available)&#xA;&#xA;&#xA;Error: Invalid provider configuration&#xA;&#xA;Provider &#34;registry.terraform.io/ciscodevnet/aci&#34; requires explicit&#xA;configuration. Add a provider block to the root module and&#xA;configure the provider&#39;s required arguments as described in the&#xA;provider documentation.&#xA;&#xA;&#xA;Warning: The test provider is experimental&#xA;&#xA;  with provider[&#34;terraform.io/builtin/test&#34;],&#xA;The Terraform team is using the test provider&#xA;(terraform.io/builtin/test) as part of ongoing research about&#xA;declarative testing of Terraform modules.&#xA;&#xA;The availability and behavior of this provider is expected to&#xA;change significantly even in patch releases, so we recommend using&#xA;this provider only in test configurations and constraining your&#xA;test configurations to an exact Terraform version.&#xA;</system-out>
+    </testcase>
+  </testsuite>
+  <testsuite>
+    <name>minimal</name>
+    <tests>1</tests>
+    <skipped>0</skipped>
+    <errors>1</errors>
+    <failures>0</failures>
+    <testcase>
+      <name>(plan)</name>
+      <classname>(plan)</classname>
+      <error>
+        <message>failed to create a plan</message>
+      </error>
+      <system-out>&#xA;Warning: The test provider is experimental&#xA;&#xA;  with provider[&#34;terraform.io/builtin/test&#34;],&#xA;The Terraform team is using the test provider&#xA;(terraform.io/builtin/test) as part of ongoing research about&#xA;declarative testing of Terraform modules.&#xA;&#xA;The availability and behavior of this provider is expected to&#xA;change significantly even in patch releases, so we recommend using&#xA;this provider only in test configurations and constraining your&#xA;test configurations to an exact Terraform version.&#xA;&#xA;Error: Either of private_key/cert_name or password is required&#xA;&#xA;  with provider[&#34;registry.terraform.io/ciscodevnet/aci&#34;],&#xA;  on &lt;empty&gt; line 0:&#xA;  (source code not available)&#xA;&#xA;&#xA;Error: Invalid provider configuration&#xA;&#xA;Provider &#34;registry.terraform.io/ciscodevnet/aci&#34; requires explicit&#xA;configuration. Add a provider block to the root module and&#xA;configure the provider&#39;s required arguments as described in the&#xA;provider documentation.&#xA;&#xA;</system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
