@@ -55,7 +55,7 @@ resource "test_assertions" "igmpIfPol" {
   equal "ifCtrl" {
     description = "ifCtrl"
     got         = data.aci_rest_managed.igmpIfPol.content.ifCtrl
-    want        = "allow-v3-asm,fast-leave,rep-ll"
+    want        = ""
   }
 
   equal "lastMbrCnt" {
