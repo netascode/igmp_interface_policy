@@ -1,16 +1,5 @@
-variable "name" {
-  description = "IGMP Interface Policy name."
-  type        = string
-
-  validation {
-    condition     = can(regex("^[a-zA-Z0-9_.-]{0,64}$", var.name))
-    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `_`, `.`, `-`. Maximum characters: 64."
-  }
-}
-
-
 variable "tenant" {
-  description = "IGMP Interface Policy's Tenant name."
+  description = "Tenant name."
   type        = string
 
   validation {
@@ -19,9 +8,18 @@ variable "tenant" {
   }
 }
 
+variable "name" {
+  description = "IGMP interface policy name."
+  type        = string
+
+  validation {
+    condition     = can(regex("^[a-zA-Z0-9_.-]{0,64}$", var.name))
+    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `_`, `.`, `-`. Maximum characters: 64."
+  }
+}
 
 variable "description" {
-  description = "Tenant description."
+  description = "IGMP interface policy description."
   type        = string
   default     = ""
 
@@ -32,7 +30,7 @@ variable "description" {
 }
 
 variable "grp_timeout" {
-  description = "IGMP Interface Policy Group Name. Allowed values between 3-65535."
+  description = "IGMP interface policy group timeout. Allowed values between 3-65535."
   type        = number
   default     = 260
 
@@ -43,25 +41,25 @@ variable "grp_timeout" {
 }
 
 variable "allow_v3_asm" {
-  description = "IGMP Interface Policy flag for Any-source multicast (ASM) v3."
+  description = "IGMP interface policy flag for Any-source multicast (ASM) v3."
   type        = bool
   default     = false
 }
 
 variable "fast_leave" {
-  description = "IGMP Interface Policy flag for Fast Leave."
+  description = "IGMP interface policy flag for fast leave."
   type        = bool
   default     = false
 }
 
 variable "report_link_local_groups" {
-  description = "IGMP Interface Policy flag for Link Local groups report."
+  description = "IGMP interface policy flag for link local groups report."
   type        = bool
   default     = false
 }
 
 variable "last_member_count" {
-  description = "IGMP Interface Policy last member query count. Allowed values between 1-5."
+  description = "IGMP interface policy last member query count. Allowed values between 1-5."
   type        = number
   default     = 2
 
@@ -72,7 +70,7 @@ variable "last_member_count" {
 }
 
 variable "last_member_response_time" {
-  description = "IGMP Interface Policy last member response time. Allowed values between 1-25."
+  description = "IGMP interface policy last member response time. Allowed values between 1-25."
   type        = number
   default     = 1
 
@@ -83,7 +81,7 @@ variable "last_member_response_time" {
 }
 
 variable "querier_timeout" {
-  description = "IGMP Interface Policy querier timeout. Allowed values between 1-255."
+  description = "IGMP interface policy querier timeout. Allowed values between 1-255."
   type        = number
   default     = 255
 
@@ -94,7 +92,7 @@ variable "querier_timeout" {
 }
 
 variable "query_interval" {
-  description = "IGMP Interface Policy querier interval. Allowed values between 1-18000."
+  description = "IGMP interface policy querier interval. Allowed values between 1-18000."
   type        = number
   default     = 125
 
@@ -105,7 +103,7 @@ variable "query_interval" {
 }
 
 variable "robustness_variable" {
-  description = "IGMP Interface Policy robustness factor. Allowed values between 1-7."
+  description = "IGMP interface policy robustness factor. Allowed values between 1-7."
   type        = number
   default     = 2
 
@@ -116,7 +114,7 @@ variable "robustness_variable" {
 }
 
 variable "query_response_interval" {
-  description = "IGMP Interface Policy query response interval. Allowed values between 1-25."
+  description = "IGMP interface policy query response interval. Allowed values between 1-25."
   type        = number
   default     = 25
 
@@ -127,7 +125,7 @@ variable "query_response_interval" {
 }
 
 variable "startup_query_count" {
-  description = "IGMP Interface Policy startup query count. Allowed values between 1-10."
+  description = "IGMP interface policy startup query count. Allowed values between 1-10."
   type        = number
   default     = 2
 
@@ -138,7 +136,7 @@ variable "startup_query_count" {
 }
 
 variable "startup_query_interval" {
-  description = "IGMP Interface Policy startup query interval. Allowed values between 1-10."
+  description = "IGMP interface policy startup query interval. Allowed values between 1-10."
   type        = number
   default     = 31
 
@@ -149,7 +147,7 @@ variable "startup_query_interval" {
 }
 
 variable "version_" {
-  description = "IGMP Interface Policy startup query count. Allowed values `v2` or `v3`."
+  description = "IGMP interface policy startup query count. Allowed values `v2` or `v3`."
   type        = string
   default     = "v2"
 
@@ -160,7 +158,7 @@ variable "version_" {
 }
 
 variable "report_policy_multicast_route_map" {
-  description = "IGMP Interface Policy report multicast route-map."
+  description = "IGMP interface policy report multicast route-map."
   type        = string
   default     = ""
 
@@ -171,7 +169,7 @@ variable "report_policy_multicast_route_map" {
 }
 
 variable "static_report_multicast_route_map" {
-  description = "IGMP Interface Policy static report multicast route-map."
+  description = "IGMP interface policy static report multicast route-map."
   type        = string
   default     = ""
 
@@ -182,7 +180,7 @@ variable "static_report_multicast_route_map" {
 }
 
 variable "max_mcast_entries" {
-  description = "IGMP Interface Policy maximum number of multicast entries. Allowed values 1-4294967295 or `unlimited`."
+  description = "IGMP interface policy maximum number of multicast entries. Allowed values 1-4294967295 or `unlimited`."
   type        = string
   default     = "unlimited"
 
@@ -193,7 +191,7 @@ variable "max_mcast_entries" {
 }
 
 variable "reserved_mcast_entries" {
-  description = "IGMP Interface Policy number of reserved multicast entries. Allowed values 0-4294967295 or `undefined`."
+  description = "IGMP interface policy number of reserved multicast entries. Allowed values 0-4294967295 or `undefined`."
   type        = string
   default     = "undefined"
 
@@ -204,7 +202,7 @@ variable "reserved_mcast_entries" {
 }
 
 variable "state_limit_multicast_route_map" {
-  description = "IGMP Interface Policy state limit multicast route-map."
+  description = "IGMP interface policy state limit multicast route-map."
   type        = string
   default     = ""
 

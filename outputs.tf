@@ -5,5 +5,5 @@ output "dn" {
 
 output "name" {
   value       = aci_rest_managed.igmpIfPol.content.name
-  description = "IGMP Interface Policy name."
+  description = "IGMP interface policy name."
 }
