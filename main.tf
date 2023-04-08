@@ -20,7 +20,7 @@ resource "aci_rest_managed" "igmpIfPol" {
 
 resource "aci_rest_managed" "igmpStRepPol" {
   count      = var.report_policy_multicast_route_map != "" ? 1 : 0
-  dn         = "${aci_rest_managed.igmpIfPol.id}/igmpstrepPol-static-group"
+  dn         = "${aci_rest_managed.igmpIfPol.dn}/igmpstrepPol-static-group"
   class_name = "igmpStRepPol"
   content = {
     joinType = "static-group"
@@ -29,7 +29,7 @@ resource "aci_rest_managed" "igmpStRepPol" {
 
 resource "aci_rest_managed" "rtdmcRsFilterToRtMapPol_report_policy" {
   count      = var.report_policy_multicast_route_map != "" ? 1 : 0
-  dn         = "${aci_rest_managed.igmpStRepPol[0].id}/rsfilterToRtMapPol"
+  dn         = "${aci_rest_managed.igmpStRepPol[0].dn}/rsfilterToRtMapPol"
   class_name = "rtdmcRsFilterToRtMapPol"
   content = {
     tDn = "uni/tn-${var.tenant}/rtmap-${var.report_policy_multicast_route_map}"
@@ -38,13 +38,13 @@ resource "aci_rest_managed" "rtdmcRsFilterToRtMapPol_report_policy" {
 
 resource "aci_rest_managed" "igmpRepPol" {
   count      = var.static_report_multicast_route_map != "" ? 1 : 0
-  dn         = "${aci_rest_managed.igmpIfPol.id}/igmprepPol"
+  dn         = "${aci_rest_managed.igmpIfPol.dn}/igmprepPol"
   class_name = "igmpRepPol"
 }
 
 resource "aci_rest_managed" "rtdmcRsFilterToRtMapPol_static_report" {
   count      = var.static_report_multicast_route_map != "" ? 1 : 0
-  dn         = "${aci_rest_managed.igmpRepPol[0].id}/rsfilterToRtMapPol"
+  dn         = "${aci_rest_managed.igmpRepPol[0].dn}/rsfilterToRtMapPol"
   class_name = "rtdmcRsFilterToRtMapPol"
   content = {
     tDn = "uni/tn-${var.tenant}/rtmap-${var.static_report_multicast_route_map}"
@@ -52,7 +52,7 @@ resource "aci_rest_managed" "rtdmcRsFilterToRtMapPol_static_report" {
 }
 
 resource "aci_rest_managed" "igmpStateLPol" {
-  dn         = "${aci_rest_managed.igmpIfPol.id}/igmpstateLPol"
+  dn         = "${aci_rest_managed.igmpIfPol.dn}/igmpstateLPol"
   class_name = "igmpStateLPol"
   content = {
     max  = var.max_mcast_entries
@@ -62,7 +62,7 @@ resource "aci_rest_managed" "igmpStateLPol" {
 
 resource "aci_rest_managed" "rtdmcRsFilterToRtMapPol_state_limit" {
   count      = var.state_limit_multicast_route_map != "" ? 1 : 0
-  dn         = "${aci_rest_managed.igmpStateLPol.id}/rsfilterToRtMapPol"
+  dn         = "${aci_rest_managed.igmpStateLPol.dn}/rsfilterToRtMapPol"
   class_name = "rtdmcRsFilterToRtMapPol"
   content = {
     tDn = "uni/tn-${var.tenant}/rtmap-${var.state_limit_multicast_route_map}"
